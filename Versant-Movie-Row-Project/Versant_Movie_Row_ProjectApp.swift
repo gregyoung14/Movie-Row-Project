@@ -12,6 +12,7 @@ struct Versant_Movie_Row_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
         }
     }
 }
