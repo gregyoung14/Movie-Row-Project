@@ -35,7 +35,7 @@ struct MovieRowView: View {
 	/// - Private because it's an implementation detail
 	/// - Called once per render, result used by all posters in this row
 	private var posterSize: CGSize {
-		MoviePosterView.posterSize(availableWidth: availableWidth)
+		Constants.Poster.size(availableWidth: availableWidth)
 	}
 
 	var body: some View {

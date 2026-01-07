@@ -28,9 +28,6 @@ struct ContentView: View {
     ///   to demonstrate lazy rendering performance at scale
     @StateObject private var viewModel = MovieDataViewModel(datasetMode: .expanded)
 
-	/// Comp background color, matches provided design spec
-	private let compBackgroundColor = Color(red: 4.0 / 255.0, green: 28.0 / 255.0, blue: 44.0 / 255.0)
-
     var body: some View {
         /// **Layout Strategy: GeometryReader for Dynamic Sizing**
         /// - Captures available screen width at the parent level
@@ -104,11 +101,9 @@ struct ContentView: View {
         }
         /// **Styling matching design spec**
         /// - preferredColorScheme: forces light mode (assignment requirement)
-        .foregroundStyle(.white)
-        .tint(.white)
-		.background(compBackgroundColor.ignoresSafeArea())
-        .preferredColorScheme(.light)
-        
+		.foregroundStyle(Constants.Colors.text)
+		.tint(Constants.Colors.text)
+		.background(Constants.Colors.background.ignoresSafeArea())
         /// **Data Loading: Swift Concurrency Integration**
         /// - .task modifier runs async code when view appears
         /// - Automatically cancelled when view disappears

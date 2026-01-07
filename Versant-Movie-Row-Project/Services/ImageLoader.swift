@@ -81,7 +81,7 @@ final class ImageLoader {
 	/// - Timeout control (30s prevents hanging on slow connections)
 	/// - Could add custom headers if needed (authorization, etc.)
 	func loadImage(from url: URL) async throws -> UIImage {
-		let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 30)
+		let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: Constants.Network.timeout)
 		let (data, response) = try await session.data(for: request)
 
 		guard

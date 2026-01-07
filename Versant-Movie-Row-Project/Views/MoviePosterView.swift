@@ -102,24 +102,10 @@ struct MoviePosterView: View {
 	}
 
 	/// **Static Factory: Responsive Poster Sizing**
-	/// - Calculates poster dimensions based on available screen width
-	/// - Called by parent MovieRowView once per row
-	/// - All posters in a row share the same calculated size
-	///
-	/// **Algorithm:**
-	/// 1. Maintains 390:550 aspect ratio from design comp
-	/// 2. Scales width as fraction of available screen width (0.28 = 28%)
-	/// 3. Clamps width between min/max to prevent extreme sizes
-	///    - min 130: prevents tiny posters on narrow screens
-	///    - max 190: prevents giant posters on wide screens (iPad)
-	/// 4. Calculates height proportionally to maintain aspect ratio
+	/// - Moved to Constants.Poster.size(availableWidth:)
+	/// - See Constants.swift for sizing logic and rationale
 	static func posterSize(availableWidth: CGFloat) -> CGSize {
-		let aspectRatio: CGFloat = 550.0 / 390.0
-
-		/// 0.28 factor chosen empirically to show ~2.5-3 posters on iPhone screens
-		/// Reduced from original 0.38 to make posters 10% smaller per user request
-		let width = max(130, min(190, availableWidth * 0.28))
-		return CGSize(width: width, height: width * aspectRatio)
+		Constants.Poster.size(availableWidth: availableWidth)
 	}
 }
 
