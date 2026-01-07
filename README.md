@@ -1,4 +1,4 @@
-#Movie Row Project
+# Movie Row Project
 
 A SwiftUI implementation of a Netflix/Vudu-style movie carousel interface with optimized performance, defensive data handling, and comprehensive testing.
 
